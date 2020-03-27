@@ -15,7 +15,7 @@ exports.upsertUser = async function (req) {
         password: await bcrypt.hash(req.body.password, saltTurns)
     });
     try {
-        let cs = await mon.upsert(dbServer, dbname, User, user, check);
+        let cs = await mon.upsert(dbServer, dbName, User, user, check);
     } catch(e) {
         console.error(e);
     }
