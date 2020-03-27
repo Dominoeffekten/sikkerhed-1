@@ -37,6 +37,7 @@ router.get('/login', function(req, res) {       // display register route
   });
 });
 router.post('/login', async function(req, res) {// new user post route
+  let rc = await userHandler.verifyUser(req); // verify credentials
   console.log(rc);
   if (rc) {
     console.log("you have login");
