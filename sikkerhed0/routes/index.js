@@ -11,7 +11,8 @@ const { body,validationResult,sanitizeBody,check } = require('express-validator'
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {
-        subtitle: 'Playing with the World'
+        subtitle: 'Playing with the World',
+        messages: "This is the world"
     });
 });
 
@@ -20,6 +21,7 @@ router.get('/worldview', async function(req, res, next) {
     res.render('worldview', {
         scriptLink:'/javascripts/continent.js',
         subtitle: 'The continents',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list"
     });
 });
 router.get('/continents', async function(req, res, next) {
@@ -33,6 +35,8 @@ router.get('/country', async function(req, res, next) {// load country site
     res.render('country', {
         scriptLink:'/javascripts/country.js',
         subtitle: 'The countries',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list"
+
     });
 });
 router.post('/country', [
@@ -50,6 +54,8 @@ router.post('/country', [
     res.render('country', {
         scriptLink:'/javascripts/country.js',
         subtitle: 'The countries',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list"
+
     });
 });
 router.get('/countries', async function(req, res, next) { // loads the db content for the country site
@@ -63,6 +69,8 @@ router.post('/countries', async function(req, res, next) { // deletes country fr
     res.render('country', {
         scriptLink:'/javascripts/country.js',
         subtitle: 'The countries',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list"
+
     });
 });
 router.post('/countryRead', async function(req, res, next) {
@@ -72,6 +80,7 @@ router.post('/countryRead', async function(req, res, next) {
     console.log(result);
     res.render('countryData', {
         title: "You are about to edit selected country: " + req.body.name,
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
         country: result,
         cont: continent,
         gov: governmentform
@@ -84,6 +93,7 @@ router.get('/city', async function(req, res, next) { // load the site
     res.render('city', {
         scriptLink:'/javascripts/citypage.js',
         subtitle: 'The cities',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.post('/cities', [
@@ -100,6 +110,7 @@ router.post('/cities', [
     res.render('city', {
         scriptLink:'/javascripts/citypage.js',
         subtitle: 'The cities',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.post('/cityRead', async function(req, res, next) {
@@ -109,6 +120,7 @@ router.post('/cityRead', async function(req, res, next) {
     console.log(result);
     res.render('cityData', {
         title: "You are about to edit selected city: " + req.body.name,
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
         city: result,
         count: countries,
     });
@@ -134,7 +146,8 @@ router.post('/city', async function(req, res, next) { // deletes country from db
     let delCity = modCities.delCities({oldid: req.body.name});
     res.render('city', {
         scriptLink:'/javascripts/citypage.js',
-        subtitle: 'The cities'
+        subtitle: 'The cities',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 // cities slut
@@ -144,6 +157,7 @@ router.get('/lang', async function(req, res, next) { // load the site
     res.render('lang', {
         scriptLink:'/javascripts/lang.js',
         subtitle: 'The language',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.post('/language', async function(req, res, next) {// add new country
@@ -151,6 +165,7 @@ router.post('/language', async function(req, res, next) {// add new country
     res.render('lang', {
         scriptLink:'/javascripts/lang.js',
         subtitle: 'The Languages',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.get('/lang/:city', async function(req, res, next) { // loads the db content 
@@ -164,6 +179,7 @@ router.post('/lang', async function(req, res, next) {  // deletes country from d
     res.render('lang', {
         scriptLink:'/javascripts/lang.js',
         subtitle: 'The Languages',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
         
     });
 });
@@ -175,6 +191,7 @@ router.post('/langRead', async function(req, res, next) {
     console.log(result);
     res.render('langData', {
         title: "You are about to edit selected language: " + req.body.language,
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
         lang: result,
         count: countries,
     });
@@ -185,7 +202,8 @@ router.post('/langRead', async function(req, res, next) {
 router.get('/goverments', async function(req, res, next) { // load the site
     res.render('goverments', {
         scriptLink:'/javascripts/gover.js',
-        subtitle: 'The form of goverments'
+        subtitle: 'The form of goverments',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.post('/gover', async function(req, res, next) {// add new country
@@ -193,6 +211,7 @@ router.post('/gover', async function(req, res, next) {// add new country
     res.render('goverments', {
         scriptLink:'/javascripts/gover.js',
         subtitle: 'The form of governments',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 router.get('/gover', async function(req, res, next) {  // loads the db content 
@@ -205,7 +224,8 @@ router.post('/goverments', async function(req, res, next) { // deletes country f
     console.log("Yah du kom herind");
     res.render('goverments', {
         scriptLink:'/javascripts/gover.js',
-        subtitle: 'The form of goverments'
+        subtitle: 'The form of goverments',
+        messages: "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list",
     });
 });
 // government slut

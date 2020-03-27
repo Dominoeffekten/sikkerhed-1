@@ -3,9 +3,6 @@
  * wrapper for CRUD functionality of a mongodb with mongoose
  */
 const mongoose = require('mongoose');
-
-
-
 // mongoose.set('debug', true);
 // mongoose.set('debug', { color: false });
 

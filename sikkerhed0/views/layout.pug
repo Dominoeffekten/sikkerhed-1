@@ -8,6 +8,13 @@ html
     body
         header
             nav
+                p= who
+                ul
+                    li
+                        a(href="/users/register") Register
+                    li
+                        a(href="/users/login") Login
+            nav
                 ul
                     li
                         a(href="/") Home
@@ -21,11 +28,9 @@ html
                         a(href="/lang") Language
                     li
                         a(href="/goverments") Form of goverment
-                    li
-                        a(href="/register") Register
         main
             block all
                 h1= 'Fragments of the World'
                 h2= subtitle
-                p= "On this page you can read all information about world continents. You are able to create, read, update and delete continents from this list"
+                p= messages
                     block content
