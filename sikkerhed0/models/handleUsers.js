@@ -23,7 +23,7 @@ exports.upsertUser = async function (req) {
 
 exports.verifyUser = async function (req) {
     let check = { email: req.body.email };
-    let u = await this.getUsers(check);
+    let u = await this.getUser(check);
     let success = await bcrypt.compare(req.body.password, u[0].password);
     if (success) {
         req.session.authenticated = true;       // set session vars
