@@ -56,7 +56,7 @@ router.post('/login', [
       res.render('index', { //user is there
         subtitle: 'Home',
           loggedin: true,
-          who: "Hello" + req.session.user
+          who: "Hello " + req.session.user
       });
   } else { //user not there
       res.render('login', {

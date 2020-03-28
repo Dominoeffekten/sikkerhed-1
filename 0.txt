@@ -1,0 +1,9 @@
+Describe in a few sentences what it would take to logout. You don't need to code it
+Hvis man skal logge ud, skal man oprette en side, som hedder logout. i den kode skal man anvende en session.end(). 
+På den måde ved node.js at den session, som brugeren anvender for at logge ind, den skal slutte nu.
+På den måde bliver brugeren logget ud 
+
+The consideration entails where to sanitize, how to sinitize, what to sanitize for 
+For at sikre brugerne ikke skriver et evt. virus program ind i koden, kan man, vha. et stykke kode,
+gøre sådan at det koden, der bliver skrevet i inputfelten, ikke blvier anset, som være en funktionen,
+men bare et linje tekst

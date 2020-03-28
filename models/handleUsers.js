@@ -23,7 +23,7 @@ exports.upsertUser = async function (req) {
 
 exports.verifyUser = async function (req) {
     let check = { email: req.body.email };
-    let u = await this.getUser(check);
+    let u = await this.getUsers(check);
     let success = await bcrypt.compare(req.body.password, u[0].password);
     if (success) {
         req.session.authenticated = true;       // set session vars
@@ -32,4 +32,13 @@ exports.verifyUser = async function (req) {
         req.session = undefined;
     }
     return success;
+};
+
+exports.getUsers = async function (query, sort) {
+    try {
+        let cs = await mon.retrieve(dbServer, dbName, User, query, sort);
+        return cs;
+    } catch (e) {
+        console.error(e);
+    }
 };
